@@ -1,0 +1,560 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P. Mahalakshmi | Business Analytics Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --navy: #101b35;
+            --purple: #7657f6;
+            --cyan: #42d9d0;
+            --light: #f5f7fc;
+            --text: #25314b;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        header {
+            background: var(--navy);
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            color: var(--cyan);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: var(--cyan);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #101b35, #29245d);
+            color: white;
+            padding: 100px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            min-height: 490px;
+        }
+
+        .hero-content {
+            max-width: 720px;
+        }
+
+        .tag {
+            display: inline-block;
+            color: var(--cyan);
+            border: 1px solid #42d9d0;
+            border-radius: 30px;
+            padding: 5px 15px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 60px);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--cyan);
+        }
+
+        .hero p {
+            color: #d3d9ee;
+            font-size: 17px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px 8px 5px 0;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--purple);
+            color: white;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--cyan);
+            color: var(--cyan);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        .hero-icon {
+            width: 190px;
+            height: 190px;
+            flex-shrink: 0;
+            border: 2px solid var(--cyan);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 65px;
+            background: #ffffff0c;
+        }
+
+        section {
+            padding: 75px 8%;
+            scroll-margin-top: 75px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            color: #6b7590;
+            margin-bottom: 30px;
+        }
+
+        .accent {
+            color: var(--purple);
+        }
+
+        .about-box {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 30px #101b350c;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 8px 25px #101b350a;
+            border: 1px solid #e9ebf5;
+        }
+
+        .card h3 {
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #65708a;
+        }
+
+        .icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .skill {
+            background: #eeeaff;
+            color: #5b40c8;
+            border-radius: 8px;
+            padding: 9px 15px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .education {
+            border-left: 3px solid var(--purple);
+            padding-left: 20px;
+        }
+
+        .marks {
+            font-size: 29px;
+            color: var(--purple);
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .project {
+            grid-column: 1 / -1;
+        }
+
+        .project-label {
+            display: inline-block;
+            background: #dffaf5;
+            color: #137c70;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .terminal {
+            background: #10151f;
+            color: #9ef3c1;
+            border-radius: 12px;
+            padding: 22px;
+            margin-top: 20px;
+            overflow-x: auto;
+            border: 1px solid #30394a;
+        }
+
+        .terminal-title {
+            color: #ffffff;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .terminal pre {
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 14px;
+            line-height: 1.9;
+            white-space: pre;
+        }
+
+        .contact {
+            background: var(--navy);
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact p {
+            color: #d3d9ee;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background: #0a1225;
+            color: #aeb8d2;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                padding: 15px 5%;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 65px 7%;
+                flex-direction: column-reverse;
+                align-items: flex-start;
+            }
+
+            .hero-icon {
+                width: 115px;
+                height: 115px;
+                font-size: 42px;
+            }
+
+            section {
+                padding: 55px 7%;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project {
+                grid-column: auto;
+            }
+
+            .section-title {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">PM.</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="tag">Aspiring Business Analyst</div>
+
+        <h1>Hello, I'm <span>P. Mahalakshmi</span></h1>
+
+        <p>
+            A student at Bishop Heber College, Trichy, aspiring to
+            become a Business Analytics professional. I am passionate
+            about technology, data, problem-solving and business insights.
+        </p>
+
+        <a class="btn btn-primary" href="#projects">
+            Explore My Projects
+        </a>
+
+        <a class="btn btn-outline"
+           href="https://www.linkedin.com/in/mahalakshmi-p-201374424?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+           target="_blank" rel="noopener noreferrer">
+            LinkedIn Profile
+        </a>
+    </div>
+
+    <div class="hero-icon" aria-label="Data analytics symbol">
+        📊
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2 class="section-title">About <span class="accent">Me</span></h2>
+    <p class="section-subtitle">A little introduction about my journey.</p>
+
+    <div class="about-box">
+        <p>
+            I am P. Mahalakshmi, currently studying at
+            <strong>Bishop Heber College, Trichy</strong>, for the
+            2026–2029 academic period.
+        </p>
+        <br>
+        <p>
+            My career goal is to become a Business Analyst. I aim to
+            combine technical data handling, statistical thinking and
+            business communication to turn raw data into actionable
+            decisions. I am developing my programming, analytical and
+            leadership skills to prepare for a career in data-driven
+            decision-making.
+        </p>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+    <h2 class="section-title">My <span class="accent">Education</span></h2>
+    <p class="section-subtitle">My academic background and achievements.</p>
+
+    <div class="grid">
+        <div class="card education">
+            <div class="icon">🎓</div>
+            <h3>Bishop Heber College</h3>
+            <p>Trichy, Tamil Nadu</p>
+            <p>Academic period: 2026–2029</p>
+            <p>Currently pursuing my college education.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📚</div>
+            <h3>10th Standard</h3>
+            <div class="marks">465 / 500</div>
+            <p>Percentage: 93%</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏆</div>
+            <h3>12th Standard</h3>
+            <div class="marks">472 / 600</div>
+            <p>Percentage: 78.67%</p>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h2 class="section-title">My <span class="accent">Skills</span></h2>
+    <p class="section-subtitle">
+        Skills I am building for my future in Business Analytics.
+    </p>
+
+    <div class="grid">
+        <div class="card">
+            <div class="icon">💻</div>
+            <h3>Technical Skills</h3>
+            <div class="skill-list">
+                <span class="skill">Python</span>
+                <span class="skill">C++</span>
+                <span class="skill">C Programming</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="icon">🤝</div>
+            <h3>Professional Skills</h3>
+            <div class="skill-list">
+                <span class="skill">Leadership</span>
+                <span class="skill">Communication</span>
+                <span class="skill">Problem Solving</span>
+                <span class="skill">Teamwork</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="icon">📈</div>
+            <h3>Career Interests</h3>
+            <div class="skill-list">
+                <span class="skill">Business Analytics</span>
+                <span class="skill">Data Analysis</span>
+                <span class="skill">Statistical Thinking</span>
+                <span class="skill">Data-Driven Decisions</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎯</div>
+            <h3>My Career Goal</h3>
+            <p>
+                To transform raw data into meaningful insights and
+                support better business decisions through analytical
+                thinking, technical knowledge and effective communication.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <h2 class="section-title">My <span class="accent">Projects</span></h2>
+    <p class="section-subtitle">
+        A showcase of my programming and professional journey.
+    </p>
+
+    <div class="grid">
+        <div class="card project">
+            <span class="project-label">PROJECT 01</span>
+            <h3>Bus Reservation System</h3>
+            <p>
+                A C programming project demonstrating route selection,
+                seat entry and reservation confirmation through a
+                simple console-based interface.
+            </p>
+
+            <div class="terminal">
+                <div class="terminal-title">
+                    Bus Reservation System — Sample Output
+                </div>
+
+                <pre>===== BUS RESERVATION SYSTEM =====
+1. Chennai to Trichy
+2. Trichy to Madurai
+3. Trichy to Coimbatore
+
+Enter your choice: 1
+Enter number of seats: 2
+
+Route: Chennai to Trichy
+Number of seats: 2
+Reservation Successful!</pre>
+            </div>
+        </div>
+
+        <div class="card project">
+            <span class="project-label">PROFILE</span>
+            <h3>LinkedIn Professional Profile</h3>
+            <p>
+                Connect with me to explore my educational journey,
+                professional interests and future career development.
+            </p>
+            <br>
+            <a class="btn btn-primary"
+               href="https://www.linkedin.com/in/mahalakshmi-p-201374424?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+               target="_blank" rel="noopener noreferrer">
+                View LinkedIn
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <h2 class="section-title">Let's <span style="color:#42d9d0">
+        Connect</span></h2>
+
+    <p>
+        I am eager to learn, grow and explore opportunities in
+        Business Analytics.
+    </p>
+
+    <a class="btn btn-primary"
+       href="https://www.linkedin.com/in/mahalakshmi-p-201374424?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+       target="_blank" rel="noopener noreferrer">
+        Connect on LinkedIn
+    </a>
+</section>
+
+<footer>
+    <p>© 2026 P. Mahalakshmi | Business Analytics Portfolio</p>
+    <p>Designed with passion for data, technology and business.</p>
+</footer>
+
+</body>
+          </html>
+          
